@@ -3,7 +3,6 @@ package com.mv.meuprojeto.resource;
 import java.util.List;
 
 import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,14 +18,18 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mv.meuprojeto.domain.Pessoa;
 import com.mv.meuprojeto.service.PessoaService;
 
+/**
+ * @author Jessica
+ *
+ */
 @RestController
-@RequestMapping(value="/pessoa", consumes=MediaType.APPLICATION_JSON, produces=MediaType.APPLICATION_JSON)
+@RequestMapping("/pessoa")
 public class PessoaResource {
 	
 	@Autowired
 	private PessoaService pessoaService;
 	
-	@GetMapping
+	@GetMapping("/all")
 	public ResponseEntity<List<Pessoa>> listarPessoas(){
 		try {
 			return ResponseEntity.ok(pessoaService.listarPessoas());

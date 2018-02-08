@@ -19,6 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mv.meuprojeto.domain.Telefone;
 import com.mv.meuprojeto.service.TelefoneService;
 
+/**
+ * @author Jessica
+ *
+ */
 @RestController
 @RequestMapping(value="/telefone", consumes=MediaType.APPLICATION_JSON, produces=MediaType.APPLICATION_JSON)
 public class TelefoneResource {

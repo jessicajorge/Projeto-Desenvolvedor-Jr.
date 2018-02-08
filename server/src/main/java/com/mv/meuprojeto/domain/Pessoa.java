@@ -5,7 +5,7 @@ package com.mv.meuprojeto.domain;
 
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -42,7 +42,7 @@ public class Pessoa implements Serializable{
 	private String cpf;
 	
 	@Column
-	private LocalDate dataDeNascimento;
+	private Date dataDeNascimento;
 	
 	@Column
 	private String email;
@@ -86,12 +86,12 @@ public class Pessoa implements Serializable{
 	}
 
 
-	public LocalDate getDataDeNascimento() {
+	public Date getDataDeNascimento() {
 		return dataDeNascimento;
 	}
 
 
-	public void setDataDeNascimento(LocalDate dataDeNascimento) {
+	public void setDataDeNascimento(Date dataDeNascimento) {
 		this.dataDeNascimento = dataDeNascimento;
 	}
 

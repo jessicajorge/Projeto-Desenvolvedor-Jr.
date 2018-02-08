@@ -5,6 +5,7 @@ package com.mv.meuprojeto.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ import com.mv.meuprojeto.repository.PessoaRepository;
 @Service
 public class PessoaService {
 	
+	@Autowired
 	private PessoaRepository pessoaRepository;
 	
 	public Pessoa salvarPessoa(Pessoa pessoa) {
