@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Listagem de Pessoas</title>
+
+
+</head>
+
+<body>
+	<main>
+		<section class="container">
+
+			<div class="card" style="margin-top: 10px;">
+				<div class="card-header">
+					Listagem de Pessoas
+				</div>
+				<div class="card-body">
+					<form>
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-12">
+									<label for="nome">Nome:</label>
+									<input type="text" class="form-control" [ngModel]="pessoa?.nome" (ngModelChange)="pessoa.nome" id="nome" name="nome">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<label for="observacoes">CPF:</label>
+									<input type="text" class="form-control" [ngModel]="pessoa?.cpf" (ngModelChange)="pessoa.cpf" id="observacoes" name="observacoes">
+								</div>
+							</div>
+						</div>
+
+						<div>
+							<a class="btn btn-light btn-md" (click)="pesquisar()">Pesquisar</a>
+							<a class="btn btn-info btn-md" [routerLink]="['/pessoa/cadastrar']">Cadastrar</a>
+						</div>
+					</form>
+					<table class="table table-bordered" style="margin-top: 30px;">
+						<thead class="thead-light">
+							<tr>
+								<th>ID</th>
+								<th>Nome</th>
+								<th>E-mail</th>
+								<th>CPF</th>
+								<th>Idade</th>
+								<th>Quantidade de Telefones</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody *ngFor="let pessoa of pessoas">
+							<tr>
+								<td class="info-nome">{{pessoa.id}}</td>
+								<td class="info-peso">{{pessoa.nome}}</td>
+								<td class="info-altura">{{pessoa.email}}</td>
+								<td class="info-gordura">{{pessoa.cpf}}</td>
+								<td class="info-imc">{{pessoa.idade}}</td>
+								<td class="info-imc">{{pessoa.qtdTelefones}}</td>
+								<td class="info-imc">
+									<button type="button" class="btn btn-link" (click)="editar(pessoa)">Editar</button>
+									<button type="button" class="btn btn-link" (click)="deletar(pessoa)">Deletar</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+
+</html>

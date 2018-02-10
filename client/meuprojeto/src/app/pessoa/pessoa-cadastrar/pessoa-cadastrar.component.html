@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Pessoa</title>
+
+
+</head>
+
+<body>
+    <main>
+        <section class="container">
+
+            <div class="card" style="margin-top: 10px;">
+                <div class="card-header">
+                    Cadastro de Pessoa
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label for="nome">Nome:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="pessoa.nome" id="nome" name="nome">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label for="observacoes">CPF:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="pessoa.cpf" id="cpf" name="cpf">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label for="observacoes">E-mail:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="pessoa.email" id="e-mail" name="e-mail">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label for="observacoes">Data de nascimento:</label>
+                                    <input type="text" class="form-control" [(ngModel)]="pessoa.dataDeNascimento" id="dataDeNascimento"
+                                        name="dataDeNascimento">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a class="btn btn-danger btn-md" [routerLink]="['/pessoa']">Cancelar</a>
+                                <button type="type" class="btn btn-success btn-md" (click)="cadastrar()">Cadastrar</button>
+                            </div>
+                        </div>
+
+                        <hr/>
+                        <div *ngIf="pessoa?.id > 0">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-8">
+                                        <label for="">DDD:</label>
+                                        <input type="text" class="form-control" [(ngModel)]="telefone.ddd" name="ddd">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <label for="">Telefone:</label>
+                                        <input type="text" class="form-control" [(ngModel)]="telefone.numero" name="numero">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <br/>
+                                        <button type="button" class="btn btn-light" style="margin-top: 7px;" (click)="adicionarTelefone()">Adicionar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <table class="table table-bordered" style="margin-top: 30px;">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>DDD</th>
+                                        <th>Telefone</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let telefone of telefones">
+                                    <tr>
+                                        <td class="info-nome">{{telefone.id}}</td>
+                                        <td class="info-peso">{{telefone.ddd}}</td>
+                                        <td class="info-altura">{{telefone.numero}}</td>
+                                        <td class="info-gordura">
+                                            <button type="button" class="btn btn-link" (click)="deletar(telefone)">Deletar</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
