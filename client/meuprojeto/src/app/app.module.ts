@@ -4,10 +4,11 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from 'app/app.routing';
 import { CommonModule } from '@angular/common';
-import { ApplicationRef_ } from '@angular/core/src/application_ref';
-import { BrowserModule } from '@angular/platform-browser/src/browser';
 import { PessoaService } from 'app/pessoa/pessoa.service';
 import { PessoaListarComponent } from 'app/pessoa/pessoa-listar/pessoa-listar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { PessoaListarComponent } from 'app/pessoa/pessoa-listar/pessoa-listar.co
     FormsModule,
     CommonModule, 
     HttpModule,
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

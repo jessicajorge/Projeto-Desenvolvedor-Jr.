@@ -57,7 +57,7 @@
 								<td class="info-altura">{{pessoa.email}}</td>
 								<td class="info-gordura">{{pessoa.cpf}}</td>
 								<td class="info-imc">{{pessoa.idade}}</td>
-								<td class="info-imc">{{pessoa.qtdTelefones}}</td>
+								<td class="info-imc">{{pessoa?.telefone?.length}}</td>
 								<td class="info-imc">
 									<button type="button" class="btn btn-link" (click)="editar(pessoa)">Editar</button>
 									<button type="button" class="btn btn-link" (click)="deletar(pessoa)">Deletar</button>

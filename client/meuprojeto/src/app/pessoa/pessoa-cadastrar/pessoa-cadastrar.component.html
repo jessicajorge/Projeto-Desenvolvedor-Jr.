@@ -14,7 +14,7 @@
 
             <div class="card" style="margin-top: 10px;">
                 <div class="card-header">
-                    Cadastro de Pessoa
+                    {{cadastro ? 'Cadastro' : 'Edição'}} de Pessoa
                 </div>
                 <div class="card-body">
                     <form>
@@ -51,7 +51,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <a class="btn btn-danger btn-md" [routerLink]="['/pessoa']">Cancelar</a>
-                                <button type="type" class="btn btn-success btn-md" (click)="cadastrar()">Cadastrar</button>
+                                <button type="type" class="btn btn-success btn-md" (click)="cadastrar()" *ngIf="cadastro == true">Cadastrar</button>
+                                <button type="type" class="btn btn-success btn-md" (click)="editar()" *ngIf="cadastro == false">Editar</button>
                             </div>
                         </div>
 
@@ -93,7 +94,7 @@
                                         <td class="info-peso">{{telefone.ddd}}</td>
                                         <td class="info-altura">{{telefone.numero}}</td>
                                         <td class="info-gordura">
-                                            <button type="button" class="btn btn-link" (click)="deletar(telefone)">Deletar</button>
+                                            <button type="button" class="btn btn-link" (click)="deletar(telefone.id)">Deletar</button>
                                         </td>
                                     </tr>
                                 </tbody>

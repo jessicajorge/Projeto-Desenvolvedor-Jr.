@@ -5,7 +5,6 @@ import { BoundElementPropertyAst } from '@angular/compiler';
 
 import 'rxjs/Rx';
 import { Pessoa } from 'app/pessoa/pessoa';
-import { Options } from 'selenium-webdriver/ie';
 
 @Injectable()
 export class PessoaService {

@@ -7,6 +7,7 @@ import { PessoaRoutingModule } from 'app/pessoa/pessoa.routing';
 import { PessoaService } from 'app/pessoa/pessoa.service';
 import { BrowserModule } from '@angular/platform-browser/src/browser';
 import { PessoaCadastrarComponent } from 'app/pessoa/pessoa-cadastrar/pessoa-cadastrar.component';
+import { TelefoneService } from '../telefone/telefone.service';
 
 
 
@@ -21,6 +22,6 @@ import { PessoaCadastrarComponent } from 'app/pessoa/pessoa-cadastrar/pessoa-cad
     CommonModule,
     HttpModule
   ],
-  providers: [PessoaService],
+  providers: [PessoaService, TelefoneService],
 })
 export class PessoaModule { }

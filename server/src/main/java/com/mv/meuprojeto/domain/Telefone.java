@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 /**
  * @author Jessica
  *
@@ -35,7 +37,8 @@ public class Telefone implements Serializable{
 	@Column
 	private String numero;
 	
-	@ManyToOne()
+	@JsonBackReference
+	@ManyToOne
 	@JoinColumn(name = "isn_pessoa")
 	private Pessoa pessoa;
 	

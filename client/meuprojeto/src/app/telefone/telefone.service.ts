@@ -1,9 +1,10 @@
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BoundElementPropertyAst } from '@angular/compiler';
 
 import { Telefone } from 'app/telefone/telefone';
+import 'rxjs/Rx';
 
 @Injectable()
 export class TelefoneService {
@@ -23,6 +24,11 @@ export class TelefoneService {
         return this.http.get(url).map((res: Response) => res.json());
     }
 
+    listarPorPessoaId(pessoaId: number) {
+        let url = this.serviceUrl + '/pessoa/' + pessoaId;
+        return this.http.get(url).map((res: Response) => res.json());
+    }
+
     listarPorParametros(telefone: Telefone): Observable<any> {
         let url = this.serviceUrl + '/parametros';
         let body = JSON.stringify(telefone);
@@ -30,11 +36,11 @@ export class TelefoneService {
             .map((res: Response) => res.json());
     }
 
-    
-
     cadastrarTelefone(telefone: Telefone): Observable<any> {
         let body = JSON.stringify(telefone);
-        return this.http.post(this.serviceUrl, body)
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post(this.serviceUrl, body, { headers: headers })
             .map((res: Response) => res.json());
 
     }
@@ -46,9 +52,11 @@ export class TelefoneService {
 
     }
 
-    deletarPessoa(telefone: Telefone) {
-        let url = this.serviceUrl + '/' + telefone.id;
-        return this.http.delete(url).map((res: Response) => res.json());
+    deletarPessoa(telefoneId: number) {
+        let url = this.serviceUrl + '/' + telefoneId;
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.delete(url, { headers: headers });
 
     }
 

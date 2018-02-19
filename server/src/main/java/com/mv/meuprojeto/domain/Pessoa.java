@@ -10,11 +10,13 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 
@@ -47,9 +49,12 @@ public class Pessoa implements Serializable{
 	@Column
 	private String email;
 	
-	@OneToMany(fetch=FetchType.LAZY)
+	@JsonManagedReference
+	@OneToMany(mappedBy="pessoa")
 	private List<Telefone> telefone;
 	
+	@Transient
+	private Integer idade;	
 	
 	public Pessoa() {
 		
@@ -162,7 +167,28 @@ public class Pessoa implements Serializable{
 			return false;
 		return true;
 	}
-	
+
+
+	public Integer getIdade() {
+		return idade;
+	}
+
+
+	public void setIdade(Integer idade) {
+		this.idade = idade;
+	}
+
+
+	public List<Telefone> getTelefone() {
+		return telefone;
+	}
+
+
+	public void setTelefone(List<Telefone> telefone) {
+		this.telefone = telefone;
+	}
+
+
 		
 
 }

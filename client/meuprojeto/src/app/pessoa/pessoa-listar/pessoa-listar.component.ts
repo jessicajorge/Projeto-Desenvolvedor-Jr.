@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Pessoa } from 'app/pessoa/pessoa';
 import { PessoaService } from 'app/pessoa/pessoa.service';
-import { Router } from '@angular/router/src/router';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './pessoa-listar.component.html',
